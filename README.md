@@ -11,7 +11,7 @@
 - `chip-atlas_vocab_metasra_not_in_direct.tsv`  
   `chip-atlas_vocab_metasra.tsv` にある Cellosaurus (CVCL) にマップされた行のうち、`chip-atlas_biosample_metasra.tsv` に存在しないもの。つまり、直接 BioSample を入力した場合はマップされないが、ChIP-Atlas の cell type class への名寄せを経由するとマップされたもの。
 
-`$ awk -F "\t" -v OFS="\t" 'FNR==1{f++}f==1&&$4~/CVCL:/{a[$1,$4]=1}f==2{b[$1]=$2}f==3&&$4~/CVCL:/&&!a[b[$1],$4]{print $0, b[$1]}' chip-atlas_biosample_metasra.tsv chip-atlas_srx_biosample.tsv chip-atlas_vocab_metasra_test.tsv > chip-atlas_vocab_metasra_not_in_direct.tsv`
+`$ awk -F "\t" -v OFS="\t" 'FNR==1{f++}f==1&&$4~/CVCL:/{a[$1,$4]=1}f==2{b[$1]=$2}f==3&&$4~/CVCL:/&&!a[b[$1],$4]{print $0, b[$1]}' chip-atlas_biosample_metasra.tsv chip-atlas_srx_biosample.tsv chip-atlas_vocab_metasra.tsv > chip-atlas_vocab_metasra_not_in_direct.tsv`
 
 ## 補足: MetaSRA の出力
 
